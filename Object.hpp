@@ -1,7 +1,16 @@
 class Object {
 public:
     explicit Object(int id);
+
+    Object(Object &other) = delete;
+    Object &operator=(Object &other) = delete;
+
+    Object(Object &&other);
+    Object &operator=(Object &&other);
+
     ~Object();
+
+    void clear();
 
 private:
     int m_id;
